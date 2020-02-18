@@ -91,4 +91,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 
-define('SITE_NAME', 'SIMEDIA | Dinas Arpus Jawa Tengah');
+define('SITE_NAME', 'ARSIP | DPMPTSP Prov Jateng');

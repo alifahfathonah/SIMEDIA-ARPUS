@@ -39,3 +39,39 @@
         <script src="<?php echo base_url('dist/js/pages/dashboard.js') ?>"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="<?php echo base_url('dist/js/demo.js') ?>"></script>
+        <!-- DataTables -->
+        <script src="<?php echo base_url('plugins/datatables/jquery.dataTables.js') ?>"></script>
+        <script src="<?php echo base_url('plugins/datatables-bs4/js/dataTables.bootstrap4.js') ?>"></script>
+        <script>
+            $(function() {
+                $("#example1").DataTable();
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                bsCustomFileInput.init();
+            });
+
+            $(function() {
+                $('.date-own').datepicker({
+                    minViewMode: 2,
+                    format: 'yyyy'
+                })
+
+                $('.select2').select2()
+
+                //Initialize Select2 Elements
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4',
+                    placeholder: "Masukkan Bulan"
+                })
+            });
+        </script>
