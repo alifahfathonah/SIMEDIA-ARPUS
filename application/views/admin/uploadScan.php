@@ -17,7 +17,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Detail Scan</h1>
+                        <h1 class="m-0 text-dark">Upload Scan</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <?php $this->load->view('template/breadcrumb.php'); ?>
@@ -50,7 +50,8 @@
                                         <?php echo $this->session->flashdata('form_error'); ?>
                                     </div>
                                 <?php endif; ?>
-                                <form id="myForm" action="<?php echo site_url('admin/uploadScan') ?>" method="post" enctype="multipart/form-data">
+                                <form id="myForm" action="<?php echo base_url('admin/uploadScan/' . $scan->id) ?>" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URI"]; ?>" />
                                     <input type="hidden" name="id" value="<?php echo $scan->id ?>" />
                                     <input type="hidden" name="nama" value="<?php echo $scan->nama ?>" />
                                     <input type="hidden" name="uraian" value="<?php echo $scan->uraian ?>" />

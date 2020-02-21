@@ -99,6 +99,7 @@ class Admin extends MY_Controller
         if ($validation->run()) {
             $scan->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
+            redirect(site_url('admin/uploadScan/' . $scan->id));
         }
 
         if ($this->form_validation->run() == FALSE) {
@@ -111,15 +112,27 @@ class Admin extends MY_Controller
         $this->load->view("admin/uploadScan", $data);
     }
 
-    public function detailScan()
+    public function detailScan($id = null)
+    {
+        $smartbook = $this->SmartbookModel;
+        $validation = $this->form_validation;
+        $validation->set_rules($smartbook->rules());
+
+        $data["smartbook"] = $smartbook->getById($id);
+        if (!$data["smartbook"]) show_404();
+        $this->load->view("admin/detailScan", $data);
+    }
+
+    public function editScan($id = null)
     {
         $scan = $this->ScanModel;
         $validation = $this->form_validation;
         $validation->set_rules($scan->rules());
 
         if ($validation->run()) {
-            $scan->save();
+            $scan->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
+            redirect(site_url('admin/uploadScan/' . $scan->id));
         }
 
         if ($this->form_validation->run() == FALSE) {
@@ -127,14 +140,9 @@ class Admin extends MY_Controller
             $this->session->set_flashdata('form_error', $errors);
         }
 
-        $data['smartbook'] = $this->db->query('select * from smartbook')->result();
-        $this->load->view('admin/scan_yanzin', $data);
-    }
-
-    public function editScan()
-    {
-        $data['smartbook'] = $this->db->query('select * from smartbook')->result();
-        $this->load->view('admin/scan_yanzin', $data);
+        $data["scan"] = $scan->getById($id);
+        if (!$data["scan"]) show_404();
+        $this->load->view("admin/uploadScan", $data);
     }
 
     public function peminjaman()

@@ -141,7 +141,7 @@ class SmartbookModel extends CI_Model
 
     public function _uploaddatask()
     {
-        $config['upload_path']          = './upload/datask/';
+        $config['upload_path']          = './upload/data/';
         $config['allowed_types']        = 'pdf|doc|docx|xls|xlsx';
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
@@ -151,7 +151,7 @@ class SmartbookModel extends CI_Model
         if (!$this->upload->do_upload('datask')) {
             $error = array('error' => $this->upload->display_errors());
             $this->session->set_flashdata('error', $error['error']);
-            redirect('admin/upload_data', 'refresh');
+            redirect('admin/uploadScan/' . $this->id, 'refresh');
         } else {
             return $this->upload->data("file_name");
         }
@@ -159,7 +159,7 @@ class SmartbookModel extends CI_Model
 
     public function _uploaddatadukung()
     {
-        $config['upload_path']          = './upload/datadukung/';
+        $config['upload_path']          = './upload/data/';
         $config['allowed_types']        = 'pdf|doc|docx|xls|xlsx';
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
@@ -169,7 +169,7 @@ class SmartbookModel extends CI_Model
         if (!$this->upload->do_upload('datadukung')) {
             $error = array('error' => $this->upload->display_errors());
             $this->session->set_flashdata('error', $error['error']);
-            redirect('admin/upload_data', 'refresh');
+            redirect('admin/uploadScan/' . $this->id, 'refresh');
         } else {
             return $this->upload->data("file_name");
         }
@@ -180,7 +180,9 @@ class SmartbookModel extends CI_Model
         $scan = $this->getById($id);
         if ($scan->datask != "default.pdf") {
             $filename = explode(".", $scan->datask)[0];
-            return array_map('unlink', glob(FCPATH . "upload/datask/$filename.*"));
+            $filename2 = explode(".", $scan->datadukung)[0];
+            return array_map('unlink', glob(FCPATH . "upload/data/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "upload/data/$filename2.*"));
         }
     }
 
@@ -188,8 +190,8 @@ class SmartbookModel extends CI_Model
     {
         $scan = $this->getById($id);
         if ($scan->datadukung != "default.pdf") {
-            $filename = explode(".", $scan->datakung)[0];
-            return array_map('unlink', glob(FCPATH . "upload/datadukung/$filename.*"));
+            $filename2 = explode(".", $scan->datadukung)[0];
+            return array_map('unlink', glob(FCPATH . "upload/data/$filename2.*"));
         }
     }
 }

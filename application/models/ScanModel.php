@@ -30,20 +30,6 @@ class ScanModel extends CI_Model
             ],
 
             [
-                'field' => 'datask',
-                'label' => 'Data SK',
-                'rules' => 'required',
-                'errors' => array('required' => '%s Belum Diisi')
-            ],
-
-            [
-                'field' => 'datadukung',
-                'label' => 'Data Dukung',
-                'rules' => 'required',
-                'errors' => array('required' => '%s Belum Diisi')
-            ],
-
-            [
                 'field' => 'urut',
                 'label' => 'No Urut',
                 'rules' => 'required',
@@ -65,12 +51,21 @@ class ScanModel extends CI_Model
     public function save()
     {
         $post = $this->input->post();
+        $this->id = $post["id"];
         $this->kode = $post["kode"];
-        $this->datask = $post["datask"];
-        $this->datadukung = $post["datadukung"];
+        $this->nama = $post["nama"];
+        $this->uraian = $post["uraian"];
+        $this->tanggal = $post["tanggal"];
+        $this->sk = $post["sk"];
+        $this->jenis = $post["jenis"];
+        $this->kota = $post["kota"];
+        $this->jumlah = $post["jumlah"];
+        $this->petugas = $post["petugas"];
+        $this->datask = $this->_uploaddatask();
+        $this->datadukung = $this->_uploaddatadukung();
         $this->dus = $post["dus"];
         $this->urut = $post["urut"];
-        return $this->db->insert($this->_table, $this);
+        return $this->db->update($this->_table, $this, array('id' => $post['id']));
     }
 
     public function update()
@@ -110,7 +105,7 @@ class ScanModel extends CI_Model
 
     public function _uploaddatask()
     {
-        $config['upload_path']          = './upload/datask/';
+        $config['upload_path']          = './upload/data/';
         $config['allowed_types']        = 'pdf|doc|docx|xls|xlsx';
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
@@ -120,7 +115,7 @@ class ScanModel extends CI_Model
         if (!$this->upload->do_upload('datask')) {
             $error = array('error' => $this->upload->display_errors());
             $this->session->set_flashdata('error', $error['error']);
-            redirect('admin/upload_data', 'refresh');
+            redirect('admin/uploadScan/' . $this->id, 'refresh');
         } else {
             return $this->upload->data("file_name");
         }
@@ -128,7 +123,7 @@ class ScanModel extends CI_Model
 
     public function _uploaddatadukung()
     {
-        $config['upload_path']          = './upload/datadukung/';
+        $config['upload_path']          = './upload/data/';
         $config['allowed_types']        = 'pdf|doc|docx|xls|xlsx';
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
@@ -138,7 +133,7 @@ class ScanModel extends CI_Model
         if (!$this->upload->do_upload('datadukung')) {
             $error = array('error' => $this->upload->display_errors());
             $this->session->set_flashdata('error', $error['error']);
-            redirect('admin/upload_data', 'refresh');
+            redirect('admin/uploadScan/' . $this->id, 'refresh');
         } else {
             return $this->upload->data("file_name");
         }
@@ -149,7 +144,9 @@ class ScanModel extends CI_Model
         $scan = $this->getById($id);
         if ($scan->datask != "default.pdf") {
             $filename = explode(".", $scan->datask)[0];
-            return array_map('unlink', glob(FCPATH . "upload/datask/$filename.*"));
+            $filename2 = explode(".", $scan->datadukung)[0];
+            return array_map('unlink', glob(FCPATH . "upload/data/$filename.*"));
+            return array_map('unlink', glob(FCPATH . "upload/data/$filename2.*"));
         }
     }
 
@@ -157,8 +154,8 @@ class ScanModel extends CI_Model
     {
         $scan = $this->getById($id);
         if ($scan->datadukung != "default.pdf") {
-            $filename = explode(".", $scan->datakung)[0];
-            return array_map('unlink', glob(FCPATH . "upload/datadukung/$filename.*"));
+            $filename2 = explode(".", $scan->datadukung)[0];
+            return array_map('unlink', glob(FCPATH . "upload/data/$filename2.*"));
         }
     }
 }

@@ -36,7 +36,7 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header">
-                                <a href="<?php echo base_url("admin/smartbook") ?>" class="btn btn-primary"><i class="fas fa-arrow-left fa-fw"></i>&nbsp;Kembali</a>
+                                <a href="<?php echo base_url("admin/scan") ?>" class="btn btn-primary"><i class="fas fa-arrow-left fa-fw"></i>&nbsp;Kembali</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -50,7 +50,7 @@
                                         <?php echo $this->session->flashdata('form_error'); ?>
                                     </div>
                                 <?php endif; ?>
-                                <form id="myForm" action="<?php echo site_url('admin/editSmartbook') ?>" method="post" enctype="multipart/form-data">
+                                <form id="myForm" action="<?php echo site_url('admin/editScan') ?>" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value="<?php echo $smartbook->id ?>" />
                                     <div class="form-group">
                                         <label for="kode">Kode*</label>
