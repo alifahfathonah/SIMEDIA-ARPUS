@@ -34,27 +34,24 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <a href="#" class="btn btn-success"><i class="fas fa-plus fa-fw"></i>&nbsp;Tambah Data Baru</a>
-                            </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <table id="example1" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                                            <thead>
+                                                <thead>
                                                     <tr>
                                                         <th>No</th>
                                                         <th>Kode</th>
                                                         <th>Nama</th>
-                                                        <th>Keterangan</th>
-                                                        <th>Tanggal</th>
                                                         <th>No SK</th>
-                                                        <th>Jenis Izin</th>
-                                                        <th>Kota</th>
                                                         <th>Jumlah</th>
                                                         <th>Penanggung Jawab</th>
+                                                        <th>Data SK</th>
+                                                        <th>Data Dukung</th>
+                                                        <th>Dus</th>
+                                                        <th>No Berkas</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -64,31 +61,33 @@
                                                             <td><?php echo $s->id; ?></td>
                                                             <td><?php echo $s->kode; ?></td>
                                                             <td><?php echo $s->nama; ?></td>
-                                                            <td><?php echo $s->uraian; ?></td>
-                                                            <td><?php echo $s->tanggal; ?></td>
                                                             <td><?php echo $s->sk; ?></td>
-                                                            <td><?php echo $s->jenis; ?></td>
-                                                            <td><?php echo $s->kota; ?></td>
                                                             <td><?php echo $s->jumlah; ?></td>
                                                             <td><?php echo $s->petugas; ?></td>
+                                                            <td><?php echo $s->datask; ?></td>
+                                                            <td><?php echo $s->datadukung; ?></td>
+                                                            <td><?php echo $s->dus; ?></td>
+                                                            <td><?php echo $s->urut; ?></td>
                                                             <td>
-                                                                <a href="#" class="btn btn-sm btn-info">Lihat</a>
+                                                                <a href="<?php echo site_url('admin/uploadScan/' . $s->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-upload"></i></a>
+                                                                <a href="<?php echo site_url('admin/detailScan/' . $s->id) ?>" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                                                                <a href="<?php echo site_url('admin/editScan/' . $s->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                    <th>No</th>
+                                                        <th>No</th>
                                                         <th>Kode</th>
                                                         <th>Nama</th>
-                                                        <th>Keterangan</th>
-                                                        <th>Tanggal</th>
                                                         <th>No SK</th>
-                                                        <th>Jenis Izin</th>
-                                                        <th>Kota</th>
                                                         <th>Jumlah</th>
-                                                        <th>Penunggang Jawab</th>
+                                                        <th>Penanggung Jawab</th>
+                                                        <th>Data SK</th>
+                                                        <th>Data Dukung</th>
+                                                        <th>Dus</th>
+                                                        <th>No Berkas</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </tfoot>

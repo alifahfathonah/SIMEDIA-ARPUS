@@ -70,7 +70,7 @@
                             <div class="icon">
                                 <i class="ion ion-archive"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="<?php echo base_url("admin/smartbook") ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -84,7 +84,7 @@
                             <div class="icon">
                                 <i class="ion ion-archive"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="<?php echo base_url("admin/scan") ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -98,7 +98,7 @@
                             <div class="icon">
                                 <i class="ion ion-document-text"></i>
                             </div>
-                            <a href="#" class="small-box-footer" style="color: white!important;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="" class="small-box-footer" style="color: white!important;">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>

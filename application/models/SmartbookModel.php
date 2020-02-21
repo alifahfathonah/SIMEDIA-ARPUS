@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class ScanModel extends CI_Model
+class SmartbookModel extends CI_Model
 {
     private $_table = "smartbook";
 

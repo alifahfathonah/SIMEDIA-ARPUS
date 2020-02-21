@@ -70,9 +70,9 @@
                                                             <td><?php echo $k->namafile; ?></td>
                                                             <td><?php echo $k->petugas; ?></td>
                                                             <td>
-                                                                <a href="<?php echo site_url('admin/detailKode/' . $k->id) ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i></a>
-                                                                <a href="<?php echo site_url('admin/editKode/' . $k->id) ?>" class="btn btn-xs btn-primary"><i class="fas fa-edit"></i></a>
-                                                                <a onclick="deleteConfirm('<?php echo site_url('admin/deleteKode/' . $k->id) ?>')" href="#!" class="btn btn-xs btn-danger"><i class="fas fa-trash"></i></a>
+                                                                <a href="<?php echo site_url('admin/detailKode/' . $k->id) ?>" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                                                                <a href="<?php echo site_url('admin/editKode/' . $k->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                                                <a onclick="deleteConfirm('<?php echo site_url('admin/deleteKode/' . $k->id) ?>')" href="#!" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -140,7 +140,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin?</h5>
                                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>

@@ -34,7 +34,7 @@
                             <a href="<?php echo base_url('admin/smartbook') ?>" class="nav-link <?php if($this->uri->segment(2)=="smartbook"){echo "active";}?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Data Smart Book Yanzin
+                                    Data Smartbook Yanzin
                                 </p>
                             </a>
                         </li>

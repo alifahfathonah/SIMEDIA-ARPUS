@@ -17,7 +17,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Detail Kode Yanzin</h1>
+                        <h1 class="m-0 text-dark">Detail Scan</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <?php $this->load->view('template/breadcrumb.php'); ?>
@@ -36,7 +36,7 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header">
-                                <a href="<?php echo base_url("admin/kode") ?>" class="btn btn-primary"><i class="fas fa-arrow-left fa-fw"></i>&nbsp;Kembali</a>
+                                <a href="<?php echo base_url("admin/scan") ?>" class="btn btn-primary"><i class="fas fa-arrow-left fa-fw"></i>&nbsp;Kembali</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -50,30 +50,50 @@
                                         <?php echo $this->session->flashdata('form_error'); ?>
                                     </div>
                                 <?php endif; ?>
-                                <form id="myForm" action="<?php echo site_url('admin/editKode') ?>" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="id" value="<?php echo $kode->id ?>" disabled='' />
+                                <form id="myForm" action="<?php echo site_url('admin/uploadScan') ?>" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="id" value="<?php echo $scan->id ?>" />
+                                    <input type="hidden" name="kode" value="<?php echo $scan->kode ?>" />
+                                    <input type="hidden" name="nama" value="<?php echo $scan->nama ?>" />
+                                    <input type="hidden" name="uraian" value="<?php echo $scan->uraian ?>" />
+                                    <input type="hidden" name="tanggal" value="<?php echo $scan->tanggal ?>" />
+                                    <input type="hidden" name="sk" value="<?php echo $scan->sk ?>" />
+                                    <input type="hidden" name="jenis" value="<?php echo $scan->jenis ?>" />
+                                    <input type="hidden" name="kota" value="<?php echo $scan->kota ?>" />
+                                    <input type="hidden" name="jumlah" value="<?php echo $scan->jumlah ?>" />
+                                    <input type="hidden" name="petugas" value="<?php echo $scan->petugas ?>" />
                                     <div class="form-group">
-                                        <label for="kode">Kode</label>
-                                        <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" value="<?php echo $kode->kode ?>" disabled='' />
+                                        <label for="datask">Data SK*</label>
+                                        <input class="form-control <?php echo form_error('datask') ? 'is-invalid' : '' ?>" type="text" name="datask" placeholder="Masukkan Data SK" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('kode') ?>
+                                            <?php echo form_error('datask') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="namafile">Nama File</label>
-                                        <input class="form-control <?php echo form_error('namafile') ? 'is-invalid' : '' ?>" type="text" name="namafile" placeholder="Masukkan Nama File" value="<?php echo $kode->namafile ?>" disabled='' />
+                                        <label for="datadukung">Data Dukung*</label>
+                                        <input class="form-control <?php echo form_error('datadukung') ? 'is-invalid' : '' ?>" type="text" name="datadukung" placeholder="Masukkan Data Dukung" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('namafile') ?>
+                                            <?php echo form_error('datadukung') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="petugas">Penanggung Jawab</label>
-                                        <input class="form-control <?php echo form_error('petugas') ? 'is-invalid' : '' ?>" type="text" name="petugas" placeholder="Masukkan Nama Petugas" value="<?php echo $kode->petugas ?>" disabled=''/>
+                                        <label for="dus">Dus*</label>
+                                        <input class="form-control <?php echo form_error('dus') ? 'is-invalid' : '' ?>" type="text" name="dus" placeholder="Masukkan Dus" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('petugas') ?>
+                                            <?php echo form_error('dus') ?>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="urut">No Berkas*</label>
+                                        <input class="form-control <?php echo form_error('urut') ? 'is-invalid' : '' ?>" type="text" name="urut" placeholder="Masukkan No Berkas" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('urut') ?>
+                                        </div>
+                                    </div>
+                                    <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
                                 </form>
+                            </div>
+                            <div class="card-footer small text-muted">
+                                * required fields
                             </div>
                             <!-- /.card-body -->
                         </div>
