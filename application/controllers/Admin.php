@@ -145,11 +145,6 @@ class Admin extends MY_Controller
         $this->load->view("admin/uploadScan", $data);
     }
 
-    public function peminjaman()
-    {
-        $this->load->view('admin/peminjaman_arsip');
-    }
-
     public function kode()
     {
         $kode = $this->KodeModel;
@@ -208,6 +203,67 @@ class Admin extends MY_Controller
         if (!isset($id)) show_404();
         if ($this->KodeModel->delete($id)) {
             redirect(site_url('admin/kode'));
+        }
+    }
+
+    public function peminjaman()
+    {
+        $peminjaman = $this->PeminjamanModel;
+        $validation = $this->form_validation;
+        $validation->set_rules($peminjaman->rules());
+
+        if ($validation->run()) {
+            $peminjaman->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        if ($this->form_validation->run() == FALSE) {
+            $errors = validation_errors();
+            $this->session->set_flashdata('form_error', $errors);
+        }
+
+        $data['peminjaman'] = $this->db->query('select * from peminjaman')->result();
+        $this->load->view('admin/peminjaman_arsip', $data);
+    }
+
+    public function detailPeminjaman($id = null)
+    {
+        $peminjaman = $this->PeminjamanModel;
+        $validation = $this->form_validation;
+        $validation->set_rules($peminjaman->rules());
+
+        $data["peminjaman"] = $peminjaman->getById($id);
+        if (!$data["peminjaman"]) show_404();
+        $this->load->view("admin/detailPeminjaman", $data);
+    }
+
+    public function editPeminjaman($id = null)
+    {
+        $peminjaman = $this->PeminjamanModel;
+        $validation = $this->form_validation;
+        $validation->set_rules($peminjaman->rules());
+
+        if ($validation->run()) {
+            $peminjaman->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            redirect(site_url('admin/editPeminjaman/' . $peminjaman->id));
+        }
+
+        if ($this->form_validation->run() == FALSE) {
+            $errors = validation_errors();
+            $this->session->set_flashdata('form_error', $errors);
+        }
+
+        $data["peminjaman"] = $peminjaman->getById($id);
+        if (!$data["peminjaman"]) show_404();
+        $this->load->view("admin/editPeminjaman", $data);
+    }
+
+    public function deletePeminjaman($id = null)
+    {
+        if (!isset($id)) show_404();
+        if ($this->PeminjamanModel->delete($id)) {
+            redirect(site_url('admin/peminjaman'));
         }
     }
 }

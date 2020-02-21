@@ -2,12 +2,17 @@
 
 class PeminjamanModel extends CI_Model
 {
-    private $_table = "kode";
+    private $_table = "peminjaman";
 
     public $id;
     public $kode;
-    public $namafile;
-    public $petugas;
+    public $tanggal;
+    public $nama;
+    public $nip;
+    public $unit;
+    public $dokumen;
+    public $berkas;
+    public $keterangan;
 
     public function rules()
     {
@@ -20,15 +25,15 @@ class PeminjamanModel extends CI_Model
             ],
 
             [
-                'field' => 'namafile',
-                'label' => 'Nama File',
+                'field' => 'tanggal',
+                'label' => 'Tanggal',
                 'rules' => 'required',
                 'errors' => array('required' => '%s Belum Diisi')
             ],
 
             [
-                'field' => 'petugas',
-                'label' => 'Petugas',
+                'field' => 'nama',
+                'label' => 'Nama',
                 'rules' => 'required',
                 'errors' => array('required' => '%s Belum Diisi')
             ]
@@ -49,8 +54,13 @@ class PeminjamanModel extends CI_Model
     {
         $post = $this->input->post();
         $this->kode = $post["kode"];
-        $this->namafile = $post["namafile"];
-        $this->petugas = $post["petugas"];
+        $this->tanggal = $post["tanggal"];
+        $this->nama = $post["nama"];
+        $this->nip = $post["nip"];
+        $this->unit = $post["unit"];
+        $this->dokumen = $post["dokumen"];
+        $this->berkas = $post["berkas"];
+        $this->keterangan = $post["keterangan"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -59,8 +69,13 @@ class PeminjamanModel extends CI_Model
         $post = $this->input->post();
         $this->id = $post["id"];
         $this->kode = $post["kode"];
-        $this->namafile = $post["namafile"];
-        $this->petugas = $post["petugas"];
+        $this->tanggal = $post["tanggal"];
+        $this->nama = $post["nama"];
+        $this->nip = $post["nip"];
+        $this->unit = $post["unit"];
+        $this->dokumen = $post["dokumen"];
+        $this->berkas = $post["berkas"];
+        $this->keterangan = $post["keterangan"];
         return $this->db->update($this->_table, array("id" => $post['id']));
     }
 

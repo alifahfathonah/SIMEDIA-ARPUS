@@ -42,6 +42,7 @@
                             <div class="card-body">
                                 <?php if ($this->session->flashdata('success')) : ?>
                                     <div class="alert alert-success" role="alert">
+                                        <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true" class="fa fa-times"></span></button>
                                         <?php echo $this->session->flashdata('success'); ?>
                                     </div>
                                 <?php endif; ?>
@@ -68,7 +69,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="petugas">Penanggung Jawab</label>
-                                        <input class="form-control <?php echo form_error('petugas') ? 'is-invalid' : '' ?>" type="text" name="petugas" placeholder="Masukkan Nama Petugas" value="<?php echo $kode->petugas ?>" disabled=''/>
+                                        <input class="form-control <?php echo form_error('petugas') ? 'is-invalid' : '' ?>" type="text" name="petugas" placeholder="Masukkan Nama Petugas" value="<?php echo $kode->petugas ?>" disabled='' />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('petugas') ?>
                                         </div>
