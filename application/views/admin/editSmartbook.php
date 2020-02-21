@@ -52,13 +52,11 @@
                                 <?php endif; ?>
                                 <form id="myForm" action="<?php echo site_url('admin/editSmartbook') ?>" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value="<?php echo $smartbook->id ?>" />
-                                    <div class="form-group">
-                                        <label for="kode">Kode*</label>
-                                        <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" value="<?php echo $smartbook->kode ?>" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('kode') ?>
-                                        </div>
-                                    </div>
+                                    <input type="hidden" name="kode" value="<?php echo $smartbook->kode ?>" />
+                                    <input type="hidden" name="datask" value="<?php echo $smartbook->datask ?>" />
+                                    <input type="hidden" name="datadukung" value="<?php echo $smartbook->datadukung ?>" />
+                                    <input type="hidden" name="dus" value="<?php echo $smartbook->dus ?>" />
+                                    <input type="hidden" name="urut" value="<?php echo $smartbook->urut ?>" />
                                     <div class="form-group">
                                         <label for="nama">Nama*</label>
                                         <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="Masukkan Nama" value="<?php echo $smartbook->nama ?>" />

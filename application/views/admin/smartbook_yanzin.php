@@ -56,7 +56,6 @@
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>Kode</th>
                                                         <th>Nama</th>
                                                         <th>Keterangan</th>
                                                         <th>Tanggal</th>
@@ -72,7 +71,6 @@
                                                     <?php foreach ($smartbook as $s) { ?>
                                                         <tr>
                                                             <td><?php echo $s->id; ?></td>
-                                                            <td><?php echo $s->kode; ?></td>
                                                             <td><?php echo $s->nama; ?></td>
                                                             <td><?php echo $s->uraian; ?></td>
                                                             <td><?php echo $s->tanggal; ?></td>
@@ -92,7 +90,6 @@
                                                 <tfoot>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>Kode</th>
                                                         <th>Nama</th>
                                                         <th>Keterangan</th>
                                                         <th>Tanggal</th>
@@ -120,13 +117,6 @@
                                         </div>
                                         <div class="modal-body">
                                             <form id="myForm" action="<?php echo site_url('admin/smartbook') ?>" method="post" enctype="multipart/form-data">
-                                                <div class="form-group">
-                                                    <label for="kode">Kode*</label>
-                                                    <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" />
-                                                    <div class="invalid-feedback">
-                                                        <?php echo form_error('kode') ?>
-                                                    </div>
-                                                </div>
                                                 <div class="form-group">
                                                     <label for="nama">Nama*</label>
                                                     <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="Masukkan Nama" />

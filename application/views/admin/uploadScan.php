@@ -52,7 +52,6 @@
                                 <?php endif; ?>
                                 <form id="myForm" action="<?php echo site_url('admin/uploadScan') ?>" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="id" value="<?php echo $scan->id ?>" />
-                                    <input type="hidden" name="kode" value="<?php echo $scan->kode ?>" />
                                     <input type="hidden" name="nama" value="<?php echo $scan->nama ?>" />
                                     <input type="hidden" name="uraian" value="<?php echo $scan->uraian ?>" />
                                     <input type="hidden" name="tanggal" value="<?php echo $scan->tanggal ?>" />
@@ -62,17 +61,30 @@
                                     <input type="hidden" name="jumlah" value="<?php echo $scan->jumlah ?>" />
                                     <input type="hidden" name="petugas" value="<?php echo $scan->petugas ?>" />
                                     <div class="form-group">
-                                        <label for="datask">Data SK*</label>
-                                        <input class="form-control <?php echo form_error('datask') ? 'is-invalid' : '' ?>" type="text" name="datask" placeholder="Masukkan Data SK" />
+                                        <label for="kode">Kode*</label>
+                                        <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" value="<?php echo $scan->kode ?>" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('datask') ?>
+                                            <?php echo form_error('kode') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="datadukung">Data Dukung*</label>
-                                        <input class="form-control <?php echo form_error('datadukung') ? 'is-invalid' : '' ?>" type="text" name="datadukung" placeholder="Masukkan Data Dukung" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('datadukung') ?>
+                                        <label for="exampleInputFile">Data SK*</label>
+                                        <div class="custom-file">
+                                            <input name="datask" type="file" class="custom-file-input <?php echo form_error('datask') ? 'is-invalid' : '' ?>" id="exampleInputFile"></input>
+                                            <label class="custom-file-label" for="exampleInputFile">Masukkan File Data SK</label>
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('datask') ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Data Dukung*</label>
+                                        <div class="custom-file">
+                                            <input name="datadukung" type="file" class="custom-file-input <?php echo form_error('datadukung') ? 'is-invalid' : '' ?>" id="exampleInputFile"></input>
+                                            <label class="custom-file-label" for="exampleInputFile">Masukkan File Data Dukung</label>
+                                            <div class="invalid-feedback">
+                                                <?php echo form_error('datadukung') ?>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
