@@ -119,6 +119,14 @@ class ScanModel extends CI_Model
         } else {
             return $this->upload->data("file_name");
         }
+
+        if (!$this->upload->do_upload('datadukung')) {
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('error', $error['error']);
+            redirect('admin/uploadScan/' . $this->id, 'refresh');
+        } else {
+            return $this->upload->data("file_name");
+        }
     }
 
     public function _uploaddatadukung()
@@ -131,6 +139,14 @@ class ScanModel extends CI_Model
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('datadukung')) {
+            $error = array('error' => $this->upload->display_errors());
+            $this->session->set_flashdata('error', $error['error']);
+            redirect('admin/uploadScan/' . $this->id, 'refresh');
+        } else {
+            return $this->upload->data("file_name");
+        }
+
+        if (!$this->upload->do_upload('datask')) {
             $error = array('error' => $this->upload->display_errors());
             $this->session->set_flashdata('error', $error['error']);
             redirect('admin/uploadScan/' . $this->id, 'refresh');

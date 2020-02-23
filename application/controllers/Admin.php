@@ -132,7 +132,7 @@ class Admin extends MY_Controller
         if ($validation->run()) {
             $scan->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
-            redirect(site_url('admin/uploadScan/' . $scan->id));
+            redirect(site_url('admin/editScan/' . $scan->id));
         }
 
         if ($this->form_validation->run() == FALSE) {
@@ -142,7 +142,7 @@ class Admin extends MY_Controller
 
         $data["scan"] = $scan->getById($id);
         if (!$data["scan"]) show_404();
-        $this->load->view("admin/uploadScan", $data);
+        $this->load->view("admin/editScan", $data);
     }
 
     public function kode()

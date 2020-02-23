@@ -125,6 +125,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="datask">Data SK*</label>
+                                        <a href="<?php echo base_url ('upload/data/' . $smartbook->datask) ?>" class="float-right btn btn-xs btn-success">Download</a>
                                         <input class="form-control <?php echo form_error('datask') ? 'is-invalid' : '' ?>" type="text" name="datask" placeholder="Data SK Belum Tersedia" value="<?php echo $smartbook->datask ?>" disabled="" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('datask') ?>
@@ -132,6 +133,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="datadukung">Data Dukung*</label>
+                                        <a href="<?php echo base_url ('upload/data/' . $smartbook->datadukung) ?>" class="float-right btn btn-xs btn-success">Download</a>
                                         <input class="form-control <?php echo form_error('datadukung') ? 'is-invalid' : '' ?>" type="text" name="datadukung" placeholder="Data Dukung Belum Tersedia" value="<?php echo $smartbook->datadukung ?>" disabled="" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('datadukung') ?>
