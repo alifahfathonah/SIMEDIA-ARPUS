@@ -44,7 +44,7 @@ class KodeModel extends CI_Model
     {
         return $this->db->get_where($this->_table, ["id" => $id])->row();
     }
-
+    
     public function save()
     {
         $post = $this->input->post();

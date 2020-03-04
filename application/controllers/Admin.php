@@ -266,4 +266,10 @@ class Admin extends MY_Controller
             redirect(site_url('admin/peminjaman'));
         }
     }
+
+    public function getKodeByPenanggungJawab()
+    {
+        $data["kode"] = $this->KodeModel->getKodeByPenanggungJawab();
+        $this->load->view("admin/kode", $data);
+    }
 }

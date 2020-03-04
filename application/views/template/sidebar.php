@@ -54,36 +54,6 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-header">SISTEM PEREKAPAN ARSIP</li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Rekap Arsip
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Hari Ini</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Per Jenis Izin</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Per Bulan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="nav-header">INFORMASI KODE YANZIN</li>
                         <li class="nav-item has-treeview">
                             <a href="<?php echo base_url('admin/kode') ?>" class="nav-link <?php if($this->uri->segment(2)=="kode"){echo "active";}?>">

@@ -36,6 +36,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#tambahbaru"><i class="fas fa-plus fa-fw"></i>&nbsp;Tambah Data Baru</a>
+                                <a href="#"  data-toggle="modal" data-target="#filterModal" class="btn btn-info"><i class="fa fa-filter fa-fw"></i>&nbsp;Filter</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -199,6 +200,35 @@
                                         <div class="modal-footer">
                                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                                             <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Filter Modal -->
+                            <div class="modal fade" id="filterModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title"> Filter </h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form" action="<?php echo site_url('admin/getKodeByPenanggungJawab') ?>" method="post">
+                                                <div class="form-group col-md-12 col-sm-12">
+                                                    <label class="col-form-label col-md-4 col-sm-4 label-align">Tahun: </label>
+                                                    <div class="col-md-6 col-sm-6 ">
+                                                        <select class="select2_single form-control" name="kelas" tabindex="-1">
+                                                            <option value=0>Semua Kelas</option>
+                                                            <option value=99>Alumni</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-success">Filter</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
