@@ -154,7 +154,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="urut">No Urut*</label>
+                                        <label for="urut">No Definitif*</label>
                                         <input class="form-control <?php echo form_error('urut') ? 'is-invalid' : '' ?>" type="text" name="urut" placeholder="No Urut Belum Tersedia" value="<?php echo $smartbook->urut ?>" disabled="" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('urut') ?>

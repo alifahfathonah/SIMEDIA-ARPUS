@@ -131,6 +131,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="jenisdok">Jenis Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('jenisdok') ? 'is-invalid' : '' ?>" type="text" name="jenisdok" placeholder="Jenis Dokumen Belum Tersedia" value="<?php echo $smartbook->jenisdok ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('jenisdok') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="keadaan">Keadaan Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('keadaan') ? 'is-invalid' : '' ?>" type="text" name="keadaan" placeholder="Keadaan Dokumen Belum Tersedia" value="<?php echo $smartbook->keadaan ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('keadaan') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="dus">Dus*</label>
                                         <input class="form-control <?php echo form_error('dus') ? 'is-invalid' : '' ?>" type="text" name="dus" placeholder="Dus Belum Tersedia" value="<?php echo $smartbook->dus ?>" disabled="" />
                                         <div class="invalid-feedback">
@@ -138,7 +152,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="urut">No Urut*</label>
+                                        <label for="urut">No Definitif*</label>
                                         <input class="form-control <?php echo form_error('urut') ? 'is-invalid' : '' ?>" type="text" name="urut" placeholder="No Urut Belum Tersedia" value="<?php echo $smartbook->urut ?>" disabled="" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('urut') ?>
