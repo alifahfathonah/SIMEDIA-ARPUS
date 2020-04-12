@@ -16,6 +16,8 @@ class SmartbookModel extends CI_Model
     public $petugas;
     public $datask;
     public $datadukung;
+    public $jenisdok;
+    public $keadaan;
     public $dus;
     public $urut;
 
@@ -76,7 +78,7 @@ class SmartbookModel extends CI_Model
                 'label' => 'Petugas',
                 'rules' => 'required',
                 'errors' => array('required' => '%s Belum Diisi')
-            ],
+            ]
         ];
     }
 
@@ -120,13 +122,15 @@ class SmartbookModel extends CI_Model
         if (!empty($_FILES["datask"]["name"])) {
             $this->datask = $this->_uploaddatask();
         } else {
-            $this->datask = $post["old_data"];
+            $this->datask = $post["old_datask"];
         }
         if (!empty($_FILES["datadukung"]["name"])) {
             $this->datadukung = $this->_uploaddatadukung();
         } else {
-            $this->datadukung = $post["old_data"];
+            $this->datadukung = $post["old_datadukung"];
         }
+        $this->jenisdok = $post["jenisdok"];
+        $this->keadaan = $post["keadaan"];
         $this->dus = $post["dus"];
         $this->urut = $post["urut"];
         return $this->db->update($this->_table, $this, array('id' => $post['id']));

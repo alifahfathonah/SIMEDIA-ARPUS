@@ -36,7 +36,7 @@
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header">
-                                <a href="<?php echo base_url("admin/peminjaman_arsip") ?>" class="btn btn-primary"><i class="fas fa-arrow-left fa-fw"></i>&nbsp;Kembali</a>
+                                <a href="<?php echo base_url("admin/peminjaman") ?>" class="btn btn-primary"><i class="fas fa-arrow-left fa-fw"></i>&nbsp;Kembali</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -52,26 +52,68 @@
                                     </div>
                                 <?php endif; ?>
                                 <form id="myForm" action="<?php echo site_url('admin/editKode') ?>" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="id" value="<?php echo $kode->id ?>" disabled='' />
+                                    <input type="hidden" name="id" value="<?php echo $peminjaman->id ?>" disabled="" />
                                     <div class="form-group">
-                                        <label for="kode">Kode</label>
-                                        <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" value="<?php echo $kode->kode ?>" disabled='' />
+                                        <label for="kode">Kode*</label>
+                                        <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" value="<?php echo $peminjaman->kode ?>" disabled="" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('kode') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="namafile">Nama File</label>
-                                        <input class="form-control <?php echo form_error('namafile') ? 'is-invalid' : '' ?>" type="text" name="namafile" placeholder="Masukkan Nama File" value="<?php echo $kode->namafile ?>" disabled='' />
+                                        <label for="tanggal">Tanggal Peminjaman*</label>
+                                        <input class="form-control <?php echo form_error('tanggal') ? 'is-invalid' : '' ?>" type="text" name="tanggal" placeholder="Masukkan Tanggal" value="<?php echo $peminjaman->tanggal ?>" disabled="" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('namafile') ?>
+                                            <?php echo form_error('tanggal') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="petugas">Penanggung Jawab</label>
-                                        <input class="form-control <?php echo form_error('petugas') ? 'is-invalid' : '' ?>" type="text" name="petugas" placeholder="Masukkan Nama Petugas" value="<?php echo $kode->petugas ?>" disabled='' />
+                                        <label for="pengembalian">Tanggal Pengembalian*</label>
+                                        <input class="form-control <?php echo form_error('pengembalian') ? 'is-invalid' : '' ?>" type="text" name="pengembalian" placeholder="Masukkan pengembalian" value="<?php echo $peminjaman->pengembalian ?>" disabled="" />
                                         <div class="invalid-feedback">
-                                            <?php echo form_error('petugas') ?>
+                                            <?php echo form_error('pengembalian') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nama">Nama Peminjam*</label>
+                                        <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="Masukkan Nama Peminjam" value="<?php echo $peminjaman->nama ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('nama') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nip">NIP*</label>
+                                        <input class="form-control <?php echo form_error('nip') ? 'is-invalid' : '' ?>" type="text" name="nip" placeholder="Masukkan NIP" value="<?php echo $peminjaman->nip ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('nip') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unit">Unit/Seksi*</label>
+                                        <input class="form-control <?php echo form_error('unit') ? 'is-invalid' : '' ?>" type="text" name="unit" placeholder="Masukkan Unit/Seksi" value="<?php echo $peminjaman->unit ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('unit') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dokumen">Nama Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('dokumen') ? 'is-invalid' : '' ?>" type="text" name="dokumen" placeholder="Masukkan Nama Dokumen" value="<?php echo $peminjaman->dokumen ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('dokumen') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="berkas">Kode Berkas*</label>
+                                        <input class="form-control <?php echo form_error('berkas') ? 'is-invalid' : '' ?>" type="text" name="berkas" placeholder="Masukkan Kode Berkas" value="<?php echo $peminjaman->berkas ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('berkas') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="keterangan">Keterangan*</label>
+                                        <input class="form-control <?php echo form_error('keterangan') ? 'is-invalid' : '' ?>" type="text" name="keterangan" placeholder="Masukkan Keterangan" value="<?php echo $peminjaman->keterangan ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('keterangan') ?>
                                         </div>
                                     </div>
                                 </form>

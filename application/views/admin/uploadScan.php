@@ -52,7 +52,6 @@
                                     </div>
                                 <?php endif; ?>
                                 <form id="myForm" action="<?php echo base_url('admin/uploadScan/' . $scan->id) ?>" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="destination" value="<?php echo $_SERVER["REQUEST_URI"]; ?>" />
                                     <input type="hidden" name="id" value="<?php echo $scan->id ?>" />
                                     <input type="hidden" name="nama" value="<?php echo $scan->nama ?>" />
                                     <input type="hidden" name="uraian" value="<?php echo $scan->uraian ?>" />
@@ -62,6 +61,8 @@
                                     <input type="hidden" name="kota" value="<?php echo $scan->kota ?>" />
                                     <input type="hidden" name="jumlah" value="<?php echo $scan->jumlah ?>" />
                                     <input type="hidden" name="petugas" value="<?php echo $scan->petugas ?>" />
+                                    <input type="hidden" name="old_datask" value="<?php echo $scan->datask ?>" />
+                                    <input type="hidden" name="old_datadukung" value="<?php echo $scan->datadukung ?>" />
                                     <div class="form-group">
                                         <label for="kode">Kode*</label>
                                         <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" value="<?php echo $scan->kode ?>" />
@@ -90,15 +91,29 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="jenisdok">Jenis Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('jenisdok') ? 'is-invalid' : '' ?>" type="text" name="jenisdok" placeholder="Masukkan Jenis Dokumen" value="<?php echo $scan->jenisdok ?>" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('jenisdok') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="keadaan">Keadaan Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('keadaan') ? 'is-invalid' : '' ?>" type="text" name="keadaan" placeholder="Masukkan Keadaan Dokumen" value="<?php echo $scan->keadaan ?>" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('keadaan') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="dus">Dus*</label>
-                                        <input class="form-control <?php echo form_error('dus') ? 'is-invalid' : '' ?>" type="text" name="dus" placeholder="Masukkan Dus" />
+                                        <input class="form-control <?php echo form_error('dus') ? 'is-invalid' : '' ?>" type="text" name="dus" placeholder="Masukkan Dus" value="<?php echo $scan->dus ?>" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('dus') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="urut">No Berkas*</label>
-                                        <input class="form-control <?php echo form_error('urut') ? 'is-invalid' : '' ?>" type="text" name="urut" placeholder="Masukkan No Berkas" />
+                                        <label for="urut">No Definitif*</label>
+                                        <input class="form-control <?php echo form_error('urut') ? 'is-invalid' : '' ?>" type="text" name="urut" placeholder="Masukkan No Definitif" value="<?php echo $scan->urut ?>" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('urut') ?>
                                         </div>

@@ -17,7 +17,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Smartbook Yanzin</h1>
+                        <h1 class="m-0 text-dark">Pengembalian Arsip Vital DPMPTSP</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <?php $this->load->view('template/breadcrumb.php'); ?>
@@ -34,10 +34,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#tambahbaru"><i class="fas fa-plus fa-fw"></i>&nbsp;Tambah Data Baru</a>
-                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#tambahbaru"><i class="fas fa-print"></i>&nbsp;Print</a>
-                            </div>
+                            <!-- /.card-header -->
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <?php if ($this->session->flashdata('success')) : ?>
@@ -58,33 +55,35 @@
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>Nama</th>
-                                                        <th>Uraian</th>
-                                                        <th>Tanggal</th>
-                                                        <th>No SK</th>
-                                                        <th>Jenis Izin</th>
-                                                        <th>Kota</th>
-                                                        <th>Jumlah</th>
-                                                        <th>Penanggung Jawab</th>
+                                                        <th>Kode Peminjaman</th>
+                                                        <th>Tanggal Peminjaman</th>
+                                                        <th>Tanggal Pengembalian</th>
+                                                        <th>Nama Peminjam</th>
+                                                        <th>NIP</th>
+                                                        <th>Unit/Seksi</th>
+                                                        <th>Nama Dokumen</th>
+                                                        <th>Kode Berkas</th>
+                                                        <th>Keterangan</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach ($smartbook as $s) { ?>
+                                                    <?php foreach ($peminjaman as $p) { ?>
                                                         <tr>
-                                                            <td><?php echo $s->id; ?></td>
-                                                            <td><?php echo $s->nama; ?></td>
-                                                            <td><?php echo $s->uraian; ?></td>
-                                                            <td><?php echo $s->tanggal; ?></td>
-                                                            <td><?php echo $s->sk; ?></td>
-                                                            <td><?php echo $s->jenis; ?></td>
-                                                            <td><?php echo $s->kota; ?></td>
-                                                            <td><?php echo $s->jumlah; ?></td>
-                                                            <td><?php echo $s->petugas; ?></td>
+                                                            <td><?php echo $p->id; ?></td>
+                                                            <td><?php echo $p->kode; ?></td>
+                                                            <td><?php echo $p->tanggal; ?></td>
+                                                            <td><?php echo $p->pengembalian; ?></td>
+                                                            <td><?php echo $p->nama; ?></td>
+                                                            <td><?php echo $p->nip; ?></td>
+                                                            <td><?php echo $p->unit; ?></td>
+                                                            <td><?php echo $p->dokumen; ?></td>
+                                                            <td><?php echo $p->berkas; ?></td>
+                                                            <td><?php echo $p->keterangan; ?></td>
                                                             <td>
-                                                                <a href="<?php echo site_url('admin/detailSmartbook/' . $s->id) ?>" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
-                                                                <a href="<?php echo site_url('admin/editSmartbook/' . $s->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                                                                <a onclick="deleteConfirm('<?php echo site_url('admin/deleteSmartbook/' . $s->id) ?>')" href="#!" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                                                <a href="<?php echo site_url('admin/detailPeminjaman/' . $p->id) ?>" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
+                                                                <a href="<?php echo site_url('admin/editPengembalian/' . $p->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                                                <a onclick="deleteConfirm('<?php echo site_url('admin/deletePeminjaman/' . $p->id) ?>')" href="#!" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                                             </td>
                                                         </tr>
                                                     <?php } ?>
@@ -92,14 +91,15 @@
                                                 <tfoot>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>Nama</th>
-                                                        <th>Uraian</th>
-                                                        <th>Tanggal</th>
-                                                        <th>No SK</th>
-                                                        <th>Jenis Izin</th>
-                                                        <th>Kota</th>
-                                                        <th>Jumlah</th>
-                                                        <th>Penunggang Jawab</th>
+                                                        <th>Kode Peminjaman</th>
+                                                        <th>Tanggal Peminjaman</th>
+                                                        <th>Tanggal Pengembalian</th>
+                                                        <th>Nama Peminjam</th>
+                                                        <th>NIP</th>
+                                                        <th>Unit/Seksi</th>
+                                                        <th>Nama Dokumen</th>
+                                                        <th>Kode Berkas</th>
+                                                        <th>Keterangan</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </tfoot>
@@ -118,19 +118,12 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form id="myForm" action="<?php echo site_url('admin/smartbook') ?>" method="post" enctype="multipart/form-data">
+                                            <form id="myForm" action="<?php echo site_url('admin/peminjaman') ?>" method="post" enctype="multipart/form-data">
                                                 <div class="form-group">
-                                                    <label for="nama">Nama*</label>
-                                                    <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="Masukkan Nama" />
+                                                    <label for="kode">Kode*</label>
+                                                    <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" />
                                                     <div class="invalid-feedback">
-                                                        <?php echo form_error('nama') ?>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="uraian">Uraian*</label>
-                                                    <input class="form-control <?php echo form_error('uraian') ? 'is-invalid' : '' ?>" type="text" name="uraian" placeholder="Masukkan Uraian" />
-                                                    <div class="invalid-feedback">
-                                                        <?php echo form_error('uraian') ?>
+                                                        <?php echo form_error('kode') ?>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -141,38 +134,45 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="sk">No SK*</label>
-                                                    <input class="form-control <?php echo form_error('sk') ? 'is-invalid' : '' ?>" type="text" name="sk" placeholder="Masukkan No SK" />
+                                                    <label for="nama">Nama Peminjam*</label>
+                                                    <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="Masukkan Nama Peminjam" />
                                                     <div class="invalid-feedback">
-                                                        <?php echo form_error('sk') ?>
+                                                        <?php echo form_error('nama') ?>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="jenis">Jenis Izin*</label>
-                                                    <input class="form-control <?php echo form_error('jenis') ? 'is-invalid' : '' ?>" type="text" name="jenis" placeholder="Masukkan Jenis SK" />
+                                                    <label for="nip">NIP*</label>
+                                                    <input class="form-control <?php echo form_error('nip') ? 'is-invalid' : '' ?>" type="text" name="nip" placeholder="Masukkan NIP" />
                                                     <div class="invalid-feedback">
-                                                        <?php echo form_error('jenis') ?>
+                                                        <?php echo form_error('nip') ?>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="kota">Kota*</label>
-                                                    <input class="form-control <?php echo form_error('kota') ? 'is-invalid' : '' ?>" type="text" name="kota" placeholder="Masukkan Kota" />
+                                                    <label for="unit">Unit/Seksi*</label>
+                                                    <input class="form-control <?php echo form_error('unit') ? 'is-invalid' : '' ?>" type="text" name="unit" placeholder="Masukkan Unit/Seksi" />
                                                     <div class="invalid-feedback">
-                                                        <?php echo form_error('kota') ?>
+                                                        <?php echo form_error('unit') ?>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="jumlah">Jumlah*</label>
-                                                    <input class="form-control <?php echo form_error('jumlah') ? 'is-invalid' : '' ?>" type="text" name="jumlah" placeholder="Masukkan Jumlah" />
+                                                    <label for="dokumen">Nama Dokumen*</label>
+                                                    <input class="form-control <?php echo form_error('dokumen') ? 'is-invalid' : '' ?>" type="text" name="dokumen" placeholder="Masukkan Nama Dokumen" />
                                                     <div class="invalid-feedback">
-                                                        <?php echo form_error('jumlah') ?>
+                                                        <?php echo form_error('dokumen') ?>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="petugas">Penanggung Jawab*</label>
-                                                    <input class="form-control <?php echo form_error('petugas') ? 'is-invalid' : '' ?>" type="text" name="petugas" placeholder="Masukkan Nama Penanggung Jawab" />
+                                                    <label for="berkas">Kode Berkas*</label>
+                                                    <input class="form-control <?php echo form_error('berkas') ? 'is-invalid' : '' ?>" type="text" name="berkas" placeholder="Masukkan Kode Berkas" />
                                                     <div class="invalid-feedback">
-                                                        <?php echo form_error('petugas') ?>
+                                                        <?php echo form_error('berkas') ?>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="keterangan">Keterangan*</label>
+                                                    <input class="form-control <?php echo form_error('keterangan') ? 'is-invalid' : '' ?>" type="text" name="keterangan" placeholder="Masukkan Keterangan" />
+                                                    <div class="invalid-feedback">
+                                                        <?php echo form_error('keterangan') ?>
                                                     </div>
                                                 </div>
                                                 <div class="small text-muted">
@@ -204,6 +204,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
                     </div>

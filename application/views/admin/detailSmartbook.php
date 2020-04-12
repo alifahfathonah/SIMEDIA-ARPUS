@@ -117,13 +117,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="kode">Kode*</label>
-                                        <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Kode Belum Tersedia" value="<?php echo $smartbook->kode ?>" disabled="" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('kode') ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="datask">Data SK*</label>
                                         <input class="form-control <?php echo form_error('datask') ? 'is-invalid' : '' ?>" type="text" name="datask" placeholder="Data SK Belum Tersedia" value="<?php echo $smartbook->datask ?>" disabled="" />
                                         <div class="invalid-feedback">

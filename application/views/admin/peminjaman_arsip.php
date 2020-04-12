@@ -17,7 +17,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Scan Data DPMPTSP</h1>
+                        <h1 class="m-0 text-dark">Peminjaman Arsip Vital DPMPTSP</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <?php $this->load->view('template/breadcrumb.php'); ?>
@@ -127,7 +127,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="tanggal">Tanggal*</label>
+                                                    <label for="tanggal">Tanggal Peminjaman*</label>
                                                     <input class="form-control <?php echo form_error('tanggal') ? 'is-invalid' : '' ?>" type="text" name="tanggal" placeholder="Masukkan Tanggal" />
                                                     <div class="invalid-feedback">
                                                         <?php echo form_error('tanggal') ?>

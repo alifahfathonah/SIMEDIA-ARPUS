@@ -35,7 +35,7 @@
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header bg-danger">
                         <h3 class="widget-user-username">Selamat Datang</h3>
-                        <h5 class="widget-user-desc">Ke Dalam Admin Sistem Pelayanan Arsip</h5>
+                        <h5 class="widget-user-desc">Ke Dalam Admin Sistem Pelayanan Arsip Vital</h5>
                     </div>
                     <div class="widget-user-image">
                         <img class="" src="<?php echo base_url() . 'dist/img/prov.png' ?>" alt="User Avatar" style="border: 0px ">
@@ -64,8 +64,10 @@
                         <!-- small box -->
                         <div class="small-box bg-primary">
                             <div class="inner">
-                                <h3>150 Data</h3>
-                                <p>Data Smartbook Yanzin</p>
+                                <h3><?php foreach ($smartbook as $d) { ?>
+                                        <?php echo  $d->count; ?>
+                                    <?php } ?> Data</h3>
+                                <p>Smartbook Yanzin</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-archive"></i>
@@ -78,13 +80,15 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>53 Data</h3>
-                                <p>Data Scan DPMPTSP</p>
+                                <h3><?php foreach ($peminjaman as $d) { ?>
+                                        <?php echo  $d->count; ?>
+                                    <?php } ?> Data</h3>
+                                <p>Peminjaman Arsip Vital</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-archive"></i>
                             </div>
-                            <a href="<?php echo base_url("admin/scan") ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="<?php echo base_url("admin/peminjaman") ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -92,13 +96,15 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner" style="color: white!important;">
-                                <h3>44 Data</h3>
-                                <p>Peminjaman Arsip Vital</p>
+                                <h3><?php foreach ($kode as $d) { ?>
+                                        <?php echo  $d->count; ?>
+                                    <?php } ?> Kode</h3>
+                                <p>Informasi Kode Yanzin</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-document-text"></i>
                             </div>
-                            <a href="" class="small-box-footer" style="color: white!important;">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="<?php echo base_url("admin/kode") ?>" class="small-box-footer" style="color: white!important;">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                 </div>

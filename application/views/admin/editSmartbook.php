@@ -57,7 +57,11 @@
                                     <input type="hidden" name="datask" value="<?php echo $smartbook->datask ?>" />
                                     <input type="hidden" name="datadukung" value="<?php echo $smartbook->datadukung ?>" />
                                     <input type="hidden" name="dus" value="<?php echo $smartbook->dus ?>" />
+                                    <input type="hidden" name="jenisdok" value="<?php echo $smartbook->jenisdok ?>" />
+                                    <input type="hidden" name="keadaan" value="<?php echo $smartbook->keadaan ?>" />
                                     <input type="hidden" name="urut" value="<?php echo $smartbook->urut ?>" />
+                                    <input type="hidden" name="old_datask" value="<?php echo $smartbook->datask ?>" />
+                                    <input type="hidden" name="old_datadukung" value="<?php echo $smartbook->datadukung ?>" />
                                     <div class="form-group">
                                         <label for="nama">Nama*</label>
                                         <input class="form-control <?php echo form_error('nama') ? 'is-invalid' : '' ?>" type="text" name="nama" placeholder="Masukkan Nama" value="<?php echo $smartbook->nama ?>" />

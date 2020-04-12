@@ -7,6 +7,7 @@ class PeminjamanModel extends CI_Model
     public $id;
     public $kode;
     public $tanggal;
+    public $pengembalian;
     public $nama;
     public $nip;
     public $unit;
@@ -70,13 +71,14 @@ class PeminjamanModel extends CI_Model
         $this->id = $post["id"];
         $this->kode = $post["kode"];
         $this->tanggal = $post["tanggal"];
+        $this->pengembalian = $post["pengembalian"];
         $this->nama = $post["nama"];
         $this->nip = $post["nip"];
         $this->unit = $post["unit"];
         $this->dokumen = $post["dokumen"];
         $this->berkas = $post["berkas"];
         $this->keterangan = $post["keterangan"];
-        return $this->db->update($this->_table, array("id" => $post['id']));
+        return $this->db->update($this->_table, $this, array("id" => $post['id']));
     }
 
     public function delete($id)

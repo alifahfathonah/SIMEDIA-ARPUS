@@ -10,17 +10,22 @@ class Admin extends MY_Controller
         $this->load->model('KodeModel');
         $this->load->model('PeminjamanModel');
         $this->load->model('SmartbookModel');
-        $this->load->model('ScanModel');
     }
 
     public function index()
     {
-        $this->load->view('admin/overview');
+        $data['smartbook'] = $this->db->query('select ID as id,COUNT(ID) as count from smartbook')->result();
+        $data['peminjaman'] = $this->db->query('select ID as id,COUNT(ID) as count from peminjaman')->result();
+        $data['kode'] = $this->db->query('select ID as id,COUNT(ID) as count from kode')->result();
+        $this->load->view('admin/overview', $data);
     }
 
     public function overview()
     {
-        $this->load->view('admin/overview');
+        $data['smartbook'] = $this->db->query('select ID as id,COUNT(ID) as count from smartbook')->result();
+        $data['peminjaman'] = $this->db->query('select ID as id,COUNT(ID) as count from peminjaman')->result();
+        $data['kode'] = $this->db->query('select ID as id,COUNT(ID) as count from kode')->result();
+        $this->load->view('admin/overview', $data);
     }
 
     public function smartbook()
@@ -92,12 +97,12 @@ class Admin extends MY_Controller
 
     public function uploadScan($id = null)
     {
-        $scan = $this->ScanModel;
+        $scan = $this->SmartbookModel;
         $validation = $this->form_validation;
         $validation->set_rules($scan->rules());
 
         if ($validation->run()) {
-            $scan->save();
+            $scan->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
             redirect(site_url('admin/uploadScan/' . $scan->id));
         }
@@ -125,7 +130,7 @@ class Admin extends MY_Controller
 
     public function editScan($id = null)
     {
-        $scan = $this->ScanModel;
+        $scan = $this->SmartbookModel;
         $validation = $this->form_validation;
         $validation->set_rules($scan->rules());
 
@@ -259,6 +264,28 @@ class Admin extends MY_Controller
         $this->load->view("admin/editPeminjaman", $data);
     }
 
+    public function editPengembalian($id = null)
+    {
+        $peminjaman = $this->PeminjamanModel;
+        $validation = $this->form_validation;
+        $validation->set_rules($peminjaman->rules());
+
+        if ($validation->run()) {
+            $peminjaman->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            redirect(site_url('admin/editPengembalian/' . $peminjaman->id));
+        }
+
+        if ($this->form_validation->run() == FALSE) {
+            $errors = validation_errors();
+            $this->session->set_flashdata('form_error', $errors);
+        }
+
+        $data["peminjaman"] = $peminjaman->getById($id);
+        if (!$data["peminjaman"]) show_404();
+        $this->load->view("admin/editPengembalian", $data);
+    }
+
     public function deletePeminjaman($id = null)
     {
         if (!isset($id)) show_404();
@@ -267,9 +294,24 @@ class Admin extends MY_Controller
         }
     }
 
-    public function getKodeByPenanggungJawab()
+    public function pengembalian()
     {
-        $data["kode"] = $this->KodeModel->getKodeByPenanggungJawab();
-        $this->load->view("admin/kode", $data);
+        $peminjaman = $this->PeminjamanModel;
+        $validation = $this->form_validation;
+        $validation->set_rules($peminjaman->rules());
+
+        if ($validation->run()) {
+            $peminjaman->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        if ($this->form_validation->run() == FALSE) {
+            $errors = validation_errors();
+            $this->session->set_flashdata('form_error', $errors);
+        }
+
+        $data['peminjaman'] = $this->db->query('select * from peminjaman')->result();
+        $this->load->view('admin/pengembalian_arsip', $data);
     }
+
 }

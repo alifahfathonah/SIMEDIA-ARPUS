@@ -50,8 +50,10 @@
                                                         <th>Penanggung Jawab</th>
                                                         <th>Data SK</th>
                                                         <th>Data Dukung</th>
+                                                        <th>Jenis Dokumen</th>
+                                                        <th>Keadaan Dokumen</th>
                                                         <th>Dus</th>
-                                                        <th>No Berkas</th>
+                                                        <th>No Definitif</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
@@ -66,6 +68,8 @@
                                                             <td><?php echo $s->petugas; ?></td>
                                                             <td><?php echo $s->datask; ?></td>
                                                             <td><?php echo $s->datadukung; ?></td>
+                                                            <td><?php echo $s->jenisdok; ?></td>
+                                                            <td><?php echo $s->keadaan; ?></td>
                                                             <td><?php echo $s->dus; ?></td>
                                                             <td><?php echo $s->urut; ?></td>
                                                             <td>
@@ -86,8 +90,10 @@
                                                         <th>Penanggung Jawab</th>
                                                         <th>Data SK</th>
                                                         <th>Data Dukung</th>
+                                                        <th>Jenis Dokumen</th>
+                                                        <th>Keadaan Dokumen</th>
                                                         <th>Dus</th>
-                                                        <th>No Berkas</th>
+                                                        <th>No Definitif</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </tfoot>

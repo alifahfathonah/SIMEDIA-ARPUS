@@ -117,13 +117,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="kode">Kode*</label>
-                                        <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Kode Belum Tersedia" value="<?php echo $smartbook->kode ?>" disabled="" />
-                                        <div class="invalid-feedback">
-                                            <?php echo form_error('kode') ?>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="datask">Data SK*</label>
                                         <a href="<?php echo base_url ('upload/data/' . $smartbook->datask) ?>" class="float-right btn btn-xs btn-success">Download</a>
                                         <input class="form-control <?php echo form_error('datask') ? 'is-invalid' : '' ?>" type="text" name="datask" placeholder="Data SK Belum Tersedia" value="<?php echo $smartbook->datask ?>" disabled="" />
@@ -137,6 +130,20 @@
                                         <input class="form-control <?php echo form_error('datadukung') ? 'is-invalid' : '' ?>" type="text" name="datadukung" placeholder="Data Dukung Belum Tersedia" value="<?php echo $smartbook->datadukung ?>" disabled="" />
                                         <div class="invalid-feedback">
                                             <?php echo form_error('datadukung') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jenisdok">Jenis Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('jenisdok') ? 'is-invalid' : '' ?>" type="text" name="jenisdok" placeholder="Jenis Dokumen Belum Tersedia" value="<?php echo $smartbook->jenisdok ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('jenisdok') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="keadaan">Keadaan Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('keadaan') ? 'is-invalid' : '' ?>" type="text" name="keadaan" placeholder="Keadaan Dokumen Belum Tersedia" value="<?php echo $smartbook->keadaan ?>" disabled="" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('keadaan') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">

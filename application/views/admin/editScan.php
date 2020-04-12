@@ -62,6 +62,8 @@
                                     <input type="hidden" name="kota" value="<?php echo $scan->kota ?>" />
                                     <input type="hidden" name="jumlah" value="<?php echo $scan->jumlah ?>" />
                                     <input type="hidden" name="petugas" value="<?php echo $scan->petugas ?>" />
+                                    <input type="hidden" name="old_datask" value="<?php echo $scan->datask ?>" />
+                                    <input type="hidden" name="old_datadukung" value="<?php echo $scan->datadukung ?>" />
                                     <div class="form-group">
                                         <label for="kode">Kode*</label>
                                         <input class="form-control <?php echo form_error('kode') ? 'is-invalid' : '' ?>" type="text" name="kode" placeholder="Masukkan Kode" value="<?php echo $scan->kode ?>" />
@@ -87,6 +89,20 @@
                                             <div class="invalid-feedback">
                                                 <?php echo form_error('datadukung') ?>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jenisdok">Jenis Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('jenisdok') ? 'is-invalid' : '' ?>" type="text" name="jenisdok" placeholder="Masukkan Jenis Dokumen" value="<?php echo $scan->jenisdok ?>" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('jenisdok') ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="keadaan">Keadaan Dokumen*</label>
+                                        <input class="form-control <?php echo form_error('keadaan') ? 'is-invalid' : '' ?>" type="text" name="keadaan" placeholder="Masukkan Keadaan Dokumen" value="<?php echo $scan->keadaan ?>" />
+                                        <div class="invalid-feedback">
+                                            <?php echo form_error('keadaan') ?>
                                         </div>
                                     </div>
                                     <div class="form-group">
