@@ -81,8 +81,8 @@
                                                             <td><?php echo $p->berkas; ?></td>
                                                             <td><?php echo $p->keterangan; ?></td>
                                                             <td>
+                                                                <a href="<?php echo site_url('admin/editPengembalian/' . $p->id) ?>" class="btn btn-sm btn-success"><i class="fas fa-upload"></i></a>
                                                                 <a href="<?php echo site_url('admin/detailPeminjaman/' . $p->id) ?>" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
-                                                                <a href="<?php echo site_url('admin/editPengembalian/' . $p->id) ?>" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                                 <a onclick="deleteConfirm('<?php echo site_url('admin/deletePeminjaman/' . $p->id) ?>')" href="#!" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                                             </td>
                                                         </tr>

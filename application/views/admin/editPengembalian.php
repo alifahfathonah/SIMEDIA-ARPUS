@@ -70,10 +70,11 @@
                                     </div>
                                     <input class="btn btn-success" type="submit" name="btn" value="Simpan" />
                                 </form>
+                                <div class="small text-muted">
+                                    * required fields
+                                </div>
                             </div>
-                            <div class="small text-muted">
-                                * required fields
-                            </div>
+
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
