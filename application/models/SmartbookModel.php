@@ -184,9 +184,9 @@ class SmartbookModel extends CI_Model
         $scan = $this->getById($id);
         if ($scan->datask != "default.pdf") {
             $filename = explode(".", $scan->datask)[0];
-            $filename2 = explode(".", $scan->datadukung)[0];
+            // $filename2 = explode(".", $scan->datadukung)[0];
             return array_map('unlink', glob(FCPATH . "upload/data/$filename.*"));
-            return array_map('unlink', glob(FCPATH . "upload/data/$filename2.*"));
+            // return array_map('unlink', glob(FCPATH . "upload/data/$filename2.*"));
         }
     }
 
