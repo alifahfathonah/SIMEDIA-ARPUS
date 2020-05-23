@@ -36,7 +36,8 @@
                         <div class="card">
                             <div class="card-header">
                                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#tambahbaru"><i class="fas fa-plus fa-fw"></i>&nbsp;Tambah Data Baru</a>
-                                <a href="<?php echo base_url("export/export") ?>" class="btn btn-primary"><i class="fas fa-print"></i>&nbsp;Print</a>
+                                <a href="<?php echo base_url("import") ?>" class="btn btn-primary"><i class="fas fa-file-import"></i>&nbsp;Import</a>
+                                <a href="<?php echo base_url("export/export") ?>" class="btn btn-primary float-right"><i class="fas fa-print"></i>&nbsp;Print</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">

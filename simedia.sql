@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2020 at 02:05 PM
+-- Generation Time: May 23, 2020 at 01:59 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -97,7 +97,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `level`) VALUES
-(1, 'admin', 'admin', '1');
+(1, 'admin', 'admin', '1'),
+(2, 'anas', 'anas', '2'),
+(3, '123', '321', '1'),
+(4, '123', '321', '1');
 
 --
 -- Indexes for dumped tables
@@ -153,7 +156,7 @@ ALTER TABLE `smartbook`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -10,6 +10,7 @@ class Admin extends MY_Controller
         $this->load->model('KodeModel');
         $this->load->model('PeminjamanModel');
         $this->load->model('SmartbookModel');
+        $this->load->model('Admin_model');
     }
 
     public function index()
@@ -314,4 +315,23 @@ class Admin extends MY_Controller
         $this->load->view('admin/pengembalian_arsip', $data);
     }
 
+    public function user()
+    {
+        $user = $this->Admin_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($user->rules());
+
+        if ($validation->run()) {
+            $user->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        if ($this->form_validation->run() == FALSE) {
+            $errors = validation_errors();
+            $this->session->set_flashdata('form_error', $errors);
+        }
+
+        $data['user'] = $this->db->query('select * from user')->result();
+        $this->load->view('admin/user', $data);
+    }
 }

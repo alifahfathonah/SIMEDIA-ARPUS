@@ -14,7 +14,7 @@
                         <img src="<?php echo base_url("dist/img/avatar5.png") ?>" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin</a>
+                        <a href="<?php echo base_url('admin/user') ?>" class="d-block">Admin</a>
                     </div>
                 </div>
 
