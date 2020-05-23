@@ -149,10 +149,11 @@ class SmartbookModel extends CI_Model
         $config['allowed_types']        = 'pdf|doc|docx|xls|xlsx';
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
+        $field_name = "datask";
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('datask')) {
+        if (!$this->upload->do_upload($field_name)) {
             $error = array('error' => $this->upload->display_errors());
             $this->session->set_flashdata('error', $error['error']);
             redirect('admin/uploadScan/' . $this->id, 'refresh');
@@ -167,10 +168,11 @@ class SmartbookModel extends CI_Model
         $config['allowed_types']        = 'pdf|doc|docx|xls|xlsx';
         $config['overwrite']            = true;
         $config['max_size']             = 1024; // 1MB
+        $field_name = "datadukung";
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('datadukung')) {
+        if (!$this->upload->do_upload($field_name)) {
             $error = array('error' => $this->upload->display_errors());
             $this->session->set_flashdata('error', $error['error']);
             redirect('admin/uploadScan/' . $this->id, 'refresh');
